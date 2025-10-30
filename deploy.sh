@@ -50,7 +50,7 @@ HEROKU_API_KEY="1234567890abcdef1234567890abcdef1234567891"
 
 # Deploy to Azure
 AZURE_STORAGE_CONNECTION_STRING="DefaultEndpointsProtocol=https;AccountName=storageaccountname;AccountKey=storageaccountkey;EndpointSuffix=core.windows.net"
-IM_Custom_Pattern_Key="IM_abc_abc123"
+IM_Custom_Pattern_Key2="IM_abc_abc123456defghijklmnop"
 echo "Deploying application..."
 # Deployment commands would go here
 echo "Deployment complete!"
