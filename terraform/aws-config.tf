@@ -1,3 +1,7 @@
+# Test push protection - Adding a new AWS secret
+# NEW_AWS_ACCESS_KEY = "AKIAIOSFODNN7TESTKEY"
+# NEW_AWS_SECRET = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYTESTKEY"
+
 # AWS Configuration based on vagrant-config.hcl
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: BUSL-1.1
