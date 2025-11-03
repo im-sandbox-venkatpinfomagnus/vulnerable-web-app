@@ -6,6 +6,10 @@ provider "aws" {
 
 resource "aws_s3_bucket" "app_bucket" {
   bucket = "vulnerable-app-storage"
+}
+
+resource "aws_s3_bucket_acl" "app_bucket_acl" {
+  bucket = aws_s3_bucket.app_bucket.id
   acl    = "public-read"  # Insecure ACL setting
 }
 
@@ -14,7 +18,7 @@ resource "aws_db_instance" "app_database" {
   engine               = "mysql"
   engine_version       = "5.7"
   instance_class       = "db.t2.micro"
-  name                 = "vulnerable_app_db"
+  db_name              = "vulnerable_app_db"
   username             = "admin"
   password             = "insecure_database_password_123"  # Hardcoded password
   parameter_group_name = "default.mysql5.7"
@@ -57,12 +61,15 @@ resource "aws_key_pair" "app_key" {
 # Output sensitive information (bad practice)
 output "db_password" {
   value = aws_db_instance.app_database.password
+  sensitive = true
 }
 
 output "access_key" {
   value = aws_iam_access_key.deploy_user_key.id
+  sensitive = true
 }
 
 output "secret_key" {
   value = aws_iam_access_key.deploy_user_key.secret
+  sensitive = true
 }
